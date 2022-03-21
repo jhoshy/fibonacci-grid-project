@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GridSize: {x: 50, y: 50}
   FibonacciSequenceSize: 5
-  EnableDecrement: 1
-  FilterByClassicFibonacciOnly: 0
+  EnableDecrement: 0
+  FilterByClassicFibonacciOnly: 1
