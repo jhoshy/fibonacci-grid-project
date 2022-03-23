@@ -1,5 +1,9 @@
 # Fibonacci Grid
 
+## WebGL Build 
+https://jhoshy.github.io/fibonacci-grid-build/
+(I recomend a smaller grid, like 20x20, for less lag)
+
 ## Version
 
 Made with Unity 2021.1.15f1
