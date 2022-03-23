@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class UIConfig : MonoBehaviour
 {
     [SerializeField] private GlobalConfig _globalConfig;
-    [SerializeField] private Toggle _toggleOnlyClassicFib, _toggleDecrement;
+    [SerializeField] private Toggle _toggleOnlyClassicFib, _toggleDecrement, _toggleShowText;
     [SerializeField] private InputField _inputGridX, _inputGridY, _inputMinSequence;
 
     private void Start()
@@ -16,6 +16,7 @@ public class UIConfig : MonoBehaviour
     {
         _toggleOnlyClassicFib.isOn = _globalConfig.FilterByClassicFibonacciOnly;
         _toggleDecrement.isOn = _globalConfig.EnableDecrement;
+        _toggleShowText.isOn = _globalConfig.ShowTextWithNumbers;
         _inputGridX.text = _globalConfig.GridSize.x.ToString();
         _inputGridY.text = _globalConfig.GridSize.y.ToString();
         _inputMinSequence.text = _globalConfig.FibonacciSequenceSize.ToString();
@@ -29,6 +30,12 @@ public class UIConfig : MonoBehaviour
     public void ToggleOnlyClassicFibonacci(bool value)
     {
         _globalConfig.FilterByClassicFibonacciOnly = value;
+    }
+    
+    public void ToggleShowText(bool value)
+    {
+        _globalConfig.ShowTextWithNumbers = value;
+        _globalConfig.OnShowNumbers?.Invoke();
     }
     
     public void SetMinSequenceSize(string input)

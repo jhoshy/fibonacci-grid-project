@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GlobalConfig : ScriptableObject
@@ -7,4 +8,6 @@ public class GlobalConfig : ScriptableObject
     [Range(5, 10)] public int FibonacciSequenceSize = 5;
     public bool EnableDecrement = false;
     public bool FilterByClassicFibonacciOnly = true;
+    public bool ShowTextWithNumbers = true;
+    public Action OnShowNumbers;
 }

@@ -14,7 +14,7 @@ public class Cell
     private int _y;
     private GridController _grid;
     private GlobalConfig _globalConfig;
-
+    private List<Cell> _tempCells = new List<Cell>(20);
 
     public Cell(int x, int y, GridController grid)
     {
@@ -93,7 +93,7 @@ public class Cell
         var sequenceSize = _globalConfig.FibonacciSequenceSize;
         var onlyClassicFibonacci = _globalConfig.FilterByClassicFibonacciOnly;
         var start = sequenceSize - 3;
-        var cells = new List<Cell>();
+        _tempCells.Clear();
 
         for (var i = -start; i < sequenceSize; i++)
         {
@@ -113,36 +113,36 @@ public class Cell
                 // Sums like fibonacci
                 if (isCorrect)
                 {
-                    if (cells.Count == 0)
+                    if (_tempCells.Count == 0)
                     {
                         // Starting a new sequence found
-                        cells.Add(cellMinus2);
-                        cells.Add(cellMinus1);
+                        _tempCells.Add(cellMinus2);
+                        _tempCells.Add(cellMinus1);
                     }
 
                     // Amount increases if this is a fibonacci sequence
-                    cells.Add(cell);
+                    _tempCells.Add(cell);
                 }
                 else
                 {
                     // We search through the whole possible sequence from left to right
-                    if (cells.Count >= sequenceSize)
+                    if (_tempCells.Count >= sequenceSize)
                     {
                         break;
                     }
 
                     // Clears the count again
-                    cells.Clear();
+                    _tempCells.Clear();
                 }
             }
         }
 
-        var success = cells.Count >= sequenceSize;
+        var success = _tempCells.Count >= sequenceSize;
         if (success)
         {
-            for (var i = 0; i < cells.Count; i++)
+            for (var i = 0; i < _tempCells.Count; i++)
             {
-                var thisCell = cells[i];
+                var thisCell = _tempCells[i];
                 thisCell.Clear();
             }
         }

@@ -244,6 +244,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _globalConfig: {fileID: 11400000, guid: 034f89ca881af3144b5e4d1d840ed592, type: 2}
 --- !u!33 &4705727012855648058
 MeshFilter:
   m_ObjectHideFlags: 0
